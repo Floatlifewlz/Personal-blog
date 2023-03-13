@@ -1,0 +1,8 @@
+body{
+    padding: 0;
+    background: url("/img/blog.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 8em;
+    background-attachment: fixed;
+}

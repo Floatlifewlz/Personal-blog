@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/login.css">
+</head>
+
+<body>
+    <main class="main" role="main">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <form class="form-container">
+                        <h2>用户登录</h2>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">账号</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="输入账号" onkeyup="checkEmail(this.value)">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">密码</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码最少6位"
+                                pattern=".{6,}" required>
+                            <div class="invalid-feedback">
+                                密码长度至少为6位。
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">记住密码</label>
+                        </div>
+                        <a href="./Blog Home.html" class="btn btn-success" role="button">登录</a>
+                        <button type="reset" class="btn btn-secondary">重置</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            Development team: <a href="./group.html">Punchline Group</a>.
+        </div>
+
+    </footer>
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+        var password = document.getElementById("exampleInputPassword1");
+        password.onkeyup = function () {
+            if (password.checkValidity()) {
+                password.classList.add("is-valid");
+                password.classList.remove("is-invalid");
+            } else {
+                password.classList.add("is-invalid");
+                password.classList.remove("is-valid");
+            }
+        }
+        function checkEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailHelp = document.getElementById("emailHelp");
+
+            if (emailRegex.test(email)) {
+                emailHelp.innerText = "邮箱格式正确";
+                emailHelp.classList.remove("text-danger");
+                emailHelp.classList.add("text-success");
+            } else {
+                emailHelp.innerText = "请输入正确的邮箱格式";
+                emailHelp.classList.remove("text-success");
+                emailHelp.classList.add("text-danger");
+            }
+        }
+    </script>
+</body>
+
+</html>
